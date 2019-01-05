@@ -1,2 +1,2 @@
-# Python3_with_HackerRank
-해커랭크에서 파이썬 기본기 재정비하기
+# 파이썬 언어로 알고리즘 하나씩 정복하기
+알고리즘 문제 : 해커랭크(https://www.hackerrank.com/)

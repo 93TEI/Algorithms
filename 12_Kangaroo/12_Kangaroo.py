@@ -6,6 +6,12 @@ import sys
 
 # Complete the kangaroo function below.
 def kangaroo(x1, v1, x2, v2):
+    while(x1 <= 10000 and x2 <= 10000):
+        if x1 == x2:
+            return "YES"
+        x1 = x1 + v1
+        x2 = x2 + v2
+    return "NO"
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')

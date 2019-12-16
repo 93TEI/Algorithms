@@ -1,9 +1,14 @@
+#!binpython3
+
 import math
 import os
 import random
 import re
 import sys
 
+
+
+# Complete the breakingRecords function below.
 def breakingRecords(scores):
 
     highest = scores[0]
@@ -25,7 +30,7 @@ def breakingRecords(scores):
 
 
 if __name__ == '__main__':
-    #fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
     n = int(input())
 
@@ -34,7 +39,7 @@ if __name__ == '__main__':
     result = breakingRecords(scores)
 
     print(result)
-    #fptr.write(' '.join(map(str, result)))
-    #fptr.write('n')
+    fptr.write(' '.join(map(str, result)))
+    fptr.write(result+'\n')
 
-    #fptr.close()
+    fptr.close()

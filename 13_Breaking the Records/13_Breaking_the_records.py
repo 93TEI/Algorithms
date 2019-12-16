@@ -40,6 +40,6 @@ if __name__ == '__main__':
 
     print(result)
     fptr.write(' '.join(map(str, result)))
-    fptr.write(result+'\n')
+    fptr.write('\n')
 
     fptr.close()

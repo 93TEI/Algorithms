@@ -1,3 +1,9 @@
 정렬 : ORDER BY 컬럼 ASC(순열), 다른 컬럼 DESC(역순)
 최소 : MIN(컬럼)
 최대 : MAX(컬럼)
+상위 1개 : LIMIT 1
+
+서브쿼리는 이름을 지정해줘야 오류가 나지 않음.
+
+WHERE과 HAVING의 차이점:
+	HAVING은 GROUP BY와 함께 쓰임

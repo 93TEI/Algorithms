@@ -7,7 +7,7 @@ def solution(phone_book):
     for i in range(len(phone_book)-1) : 
         i_len = len(phone_book[i]) # i번째 value의 길이
         i_value = phone_book[i] # i번째의 값
-        for j in range(len(phone_book) - 1 - i) :
+        for j in range(1,len(phone_book) - i) : # 자기 자신을 빼기 위해 1부터 시작<중요>
             if i_len <= len(phone_book[i+j]) :
                 if i_value == phone_book[i+j][0:i_len] :
                     answer = False

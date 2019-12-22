@@ -6,8 +6,12 @@ def solution(answers):
     n1 = []
     n2 = []
     n3 = []
+    temp=0
     for i in range(len(answers)) :
-        n1.append(i%5)
+        if temp == 6 :
+            temp = 0
+        n1.append(i+1+temp)
+        
     for i in range(len(answers)) :
         answers[i] 
     

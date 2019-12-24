@@ -35,7 +35,7 @@ def solution(answers):
         elif (i+1)%10 == 7 or (i+1)%10 == 8 :
             n3.append(4)
         else :
-            n3.append(15
+            n3.append(5)
         
     for i in range(len(answers)) :
         answers[i] 

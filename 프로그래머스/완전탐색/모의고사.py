@@ -13,7 +13,7 @@ def solution(answers):
     
     # n1 리스트 만들기
     for i in range(len(answers)) :
-        if i%5 == 0 :
+        if (i+1)%5 == 0 :
             temp += 1
         n1.append(i+1-(temp*5))
     
@@ -56,8 +56,8 @@ def solution(answers):
     
     # max와 같은 값을 가진 수포자를 answer 리스트에 append
     for i in range(3) :
-        if max == n_cnt[i] :
-            answer.append(i)
+        if max_cnt == n_cnt[i] :
+            answer.append(i+1)
     
     # 2명 이상일 경우 오름차순 정렬
     if len(answer) >1 :

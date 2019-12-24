@@ -7,7 +7,6 @@ def solution(answers):
     n2 = []
     n3 = []
     temp = 0
-    
     n1_cnt = 0
     n2_cnt = 0
     n3_cnt = 0
@@ -53,7 +52,7 @@ def solution(answers):
     
     # 리스트화 시키고 max를 뽑아냄    
     n_cnt = [n1_cnt, n2_cnt, n3_cnt]
-    max = max(n_cnt)
+    max_cnt = max(n_cnt)
     
     # max와 같은 값을 가진 수포자를 answer 리스트에 append
     for i in range(3) :

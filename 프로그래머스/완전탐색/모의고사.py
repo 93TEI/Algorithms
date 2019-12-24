@@ -26,7 +26,16 @@ def solution(answers):
     
     # n3 리스트 만들기
     for i in range(len(answers)) :
-        
+        if (i+1)%10 == 1 or (i+1)%10 == 2 :
+            n3.append(3)
+        elif (i+1)%10 == 3 or (i+1)%10 == 4 :
+            n3.append(1)
+        elif (i+1)%10 == 5 or (i+1)%10 == 6 :
+            n3.append(2)
+        elif (i+1)%10 == 7 or (i+1)%10 == 8 :
+            n3.append(4)
+        else :
+            n3.append(15
         
     for i in range(len(answers)) :
         answers[i] 

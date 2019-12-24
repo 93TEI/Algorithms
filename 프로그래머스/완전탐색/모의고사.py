@@ -7,6 +7,11 @@ def solution(answers):
     n2 = []
     n3 = []
     temp = 0
+    
+    n1_cnt = 0
+    n2_cnt = 0
+    n3_cnt = 0
+    
     # n1 리스트 만들기
     for i in range(len(answers)) :
         if i%5 == 0 :
@@ -36,8 +41,26 @@ def solution(answers):
             n3.append(4)
         else :
             n3.append(5)
-        
-    for i in range(len(answers)) :
-        answers[i] 
     
+    # 각각 수포자들이 몇개 맞았는지 확인
+    for i in range(len(answers)) :
+        if answers[i] == n1[i] :
+            n1_cnt += n1_cnt + 1
+        if answers[i] == n2[i] :
+            n2_cnt += n2_cnt + 1
+        if answers[i] == n3[i] :
+            n3_cnt += n3_cnt + 1
+    
+    # 리스트화 시키고 max를 뽑아냄    
+    n_cnt = [n1_cnt, n2_cnt, n3_cnt]
+    max = max(n_cnt)
+    
+    # max와 같은 값을 가진 수포자를 answer 리스트에 append
+    for i in range(3) :
+        if max == n_cnt[i] :
+            answer.append(i)
+    
+    # 2명 이상일 경우 오름차순 정렬
+    if len(answer) >1 :
+        answer.sort()
     return answer

@@ -13,10 +13,10 @@ def solution(answers):
     
     # n1 리스트 만들기
     for i in range(len(answers)) :
-        if (i+1)%5 == 0 :
+        if (i+1)%6 == 0 :
             temp += 1
         n1.append(i+1-(temp*5))
-    
+
     temp = 1
     # n2 리스트 만들기
     for i in range(len(answers)):
@@ -25,6 +25,8 @@ def solution(answers):
         else :
             if temp == 6 :
                 temp = 1
+            elif temp == 2 :
+                temp += 1
             n2.append(temp)
             temp += 1
     

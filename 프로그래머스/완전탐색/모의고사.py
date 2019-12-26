@@ -12,10 +12,11 @@ def solution(answers):
     n3_cnt = 0
     
     # n1 리스트 만들기
-    for i in range(len(answers)) :
-        if (i+1)%6 == 0 :
-            temp += 1
-        n1.append(i+1-(temp*5))
+    n1_list = [1,2,3,4,5]
+    for i in range(0,len(answers)+1) :
+        if i%5 == 0 :
+            temp+=1
+        n1.append(n1_list[i-(temp*5)])
 
     temp = 1
     # n2 리스트 만들기

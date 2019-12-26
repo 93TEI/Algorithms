@@ -40,9 +40,5 @@ def solution(answers):
     max_cnt = max(n_cnt)
     for i in range(3) :
         if max_cnt == n_cnt[i] :
-            answer.append(i+1)
-    
-    # 2명 이상일 경우 오름차순 정렬
-    if len(answer) >1 :
-        answer.sort()
+            answer.append(i+1) # 이 과정 덕에 오름차순을 굳이 안해도 오름차순이 됨
     return answer

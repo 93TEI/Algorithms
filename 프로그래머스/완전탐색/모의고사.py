@@ -1,44 +1,14 @@
 # 모의고사
-
+from itertools import cycle
 def solution(answers):
-    # 1,2,3번 수포자를 for문으로 미리 만들어서 비교할 생각
-    n1,n2,n3,answer= [],[],[],[]
-    n1_cnt, n2_cnt, n3_cnt,temp = 0,0,0,0
-    
-    # n1 리스트 만들기
-    n_list = [1,2,3,4,5]
-    for i in range(0,len(answers)+1) :
-        if i%5 == 0 :
-            temp+=1
-        n1.append(n_list[i-(temp*5)])
-
-    # n2 리스트 만들기
-    n_list, temp = [2,1,2,3,2,4,2,5], 0
-    for i in range(len(answers)):
-        if i%8 == 0 :
-            temp += 1
-        n2.append(n_list[i-(temp*8)])
-    
-    # n3 리스트 만들기
-    n_list, temp = [3,3,1,1,2,2,4,4,5,5], 0
-    for i in range(len(answers)) :
-        if i%10 == 0 :
-            temp += 1
-        n3.append(n_list[i-(temp*10)])
-    
-    # 각각 수포자들이 몇개 맞았는지 확인
-    for i in range(len(answers)) :
-        if answers[i] == n1[i] :
-            n1_cnt += 1
-        if answers[i] == n2[i] :
-            n2_cnt += 1
-        if answers[i] == n3[i] :
-            n3_cnt += 1
-    
-    # max와 같은 값을 가진 수포자를 answer 리스트에 append
-    n_cnt = [n1_cnt, n2_cnt, n3_cnt]
-    max_cnt = max(n_cnt)
-    for i in range(3) :
-        if max_cnt == n_cnt[i] :
-            answer.append(i+1) # 이 과정 덕에 오름차순을 굳이 안해도 오름차순이 됨
+    n1, n2, n3 = [1,2,3,4,5], [2,1,2,3,2,4,2,5], [3,3,1,1,2,2,4,4,5,5]
+    cnt, answer = [0,0,0],[] # 미리 패턴을 선언해둠
+    #zip을 이용해서 묶고 cycle로 반복해서 가져와서 비교함
+    for _n1,_n2,_n3,_answers in zip(cycle(n1),cycle(n2),cycle(n3),answers) :
+        if _answers == _n1 : cnt[0] += 1
+        if _answers == _n2 : cnt[1] += 1
+        if _answers == _n3 : cnt[2] += 1
+    _max =max(cnt) # for문에서 돌리면 3번 돌리게 돼 비효율적이라 생각해 위로 빼서 한번만 돌림
+    for i in range(3): # 비교 후 앞에서부터 넣기 때문에 오름차순 정렬을 하지 않아도 됨
+        if cnt[i] == _max : answer.append(i+1)
     return answer

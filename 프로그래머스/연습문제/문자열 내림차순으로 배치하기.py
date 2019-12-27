@@ -11,3 +11,6 @@ def solution(s):
     for i in range(len(answer)) : # 리스트였기 때문에 다시 문자열로 만들어서 return
         result += answer[i]
     return result
+
+# 다른 사람의 풀이 
+# return ''.join(sorted(s, reverse = True)) 이거 한줄이면 되는 거였다.

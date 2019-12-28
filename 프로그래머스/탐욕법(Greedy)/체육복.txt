@@ -6,13 +6,14 @@ import collections
 def solution(n, lost, reserve):
     answer = 0
     for i in lost : # lost의 앞번호 학생이 여분을 가지고 있다면 1 올리기
-        temp = collections.Counter(i-1)-(collections.Counter(i-1)-collections.Counter(reserve))
+        temp = collections.Counter(i-1) - (collections.Counter(i-1)-collections.Counter(reserve))
         if temp.get(i-1) != None :
             answer += 1
         else : # 앞번호 학생이 여분이 없다면 뒷번호 학생의 여분 확인해서 1 올리기
             temp = collections.Counter(i+1) - (collections.Counter(i+1)-collections.Counter(reserve))
             if temp.get(i+1) != None :
                 answer += 1
-    answer += n - len(lost) # 전체 학생 - 도난당한 학생 + 빌린 학생
+                reserve.pop(i+1) # 빌려주면 여분에서 빼기
+    answer += n - len(lost)
             
     return answer

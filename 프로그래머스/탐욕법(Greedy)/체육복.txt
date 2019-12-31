@@ -4,13 +4,15 @@
 import collections
 def solution(n, lost, reserve):
     answer = n - len(lost)
-    for i in range(len(lost)) :
-        if lost[i] in reserve : # 여벌 체육복 학생이 도난당하면 다른학생 못빌려주고 자신이 입어야함
+    temp_lost = list(lost)
+    for i in temp_lost :
+        if i in reserve : # 여벌 체육복 학생이 도난당하면 다른학생 못빌려주고 자신이 입어야함
             answer += 1
-            reserve.pop(reserve.index(lost[i]))
-            lost.pop(i)
-    for i in lost : # lost의 앞번호 학생이 여분을 가지고 있다면 1 올리기  
-        # 이 줄에 인덱스가 0일때를 예외처리해주면 런타임오류 해결될 것 같다
+            reserve.pop(reserve.index(i))
+            lost.pop(lost.index(i))
+            
+    temp_lost = list(lost)
+    for i in lost : # lost의 앞번호 학생이 여분을 가지고 있다면 1 올리기
         temp = (i-1) in reserve
         if temp == True :
             answer += 1

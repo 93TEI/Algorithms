@@ -1,13 +1,15 @@
 # 조이스틱 // 조작 횟수의 최소값을 return
 def solution(name):
     n = list(name)
-    answer = min(abs(ord(n[0]) - 65), abs(91 - ord(n[0])))
-    if n[1] < n[-1] :
-        for i in range(1,len(n)):
-            answer += min((ord(n[i]) - 65), abs(91 - ord(n[i])))
-    else : 
-        for i in range(len(n),1):
-            answer += min((ord(n[i]) - 65), abs(91 - ord(n[i])))
+    n1 = min(abs(ord(n[0]) - 65), abs(91 - ord(n[0])))
+    answer1, answer2 = n1, n1
+    for i in range(1,len(n)):
+        temp = min(abs(ord(n[i]) - 65), abs(91 - ord(n[i])))
+        if temp != 0 : answer1 += temp + 1
+    for i in range(len(n)-1,0,-1):
+        temp = min(abs(ord(n[i]) - 65), abs(91 - ord(n[i])))
+        if temp != 0 : answer2 += temp + 1
+    answer = min(answer1,answer2)
     return answer
 
 

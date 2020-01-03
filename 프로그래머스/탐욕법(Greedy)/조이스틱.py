@@ -1,14 +1,28 @@
 # 조이스틱 // 조작 횟수의 최소값을 return
 def solution(name):
     n = list(name)
-    n1 = min(abs(ord(n[0]) - 65), abs(91 - ord(n[0])))
-    answer1, answer2 = n1, n1
+    j, cnt_A = 0, 0
+    n1 = min(abs(ord(n[0]) - 65), abs(91 - ord(n[0]))) # 첫 글자
+    answer1, answer2 = n1, n1 # 오름차순, 내림차순 판단하기 위해 두 가지 케이스로 나눔
+    # 오른차순
     for i in range(1,len(n)):
         temp = min(abs(ord(n[i]) - 65), abs(91 - ord(n[i])))
-        if temp != 0 : answer1 += temp + 1
+        answer1 += temp + 1
+    for j in range(len(n)-1,0,-1) :
+        if n[j] != 'A' : break
+    for k in range(1,j) :
+        if n[k] == 'A' : cnt_A += 1
+    answer1 -= (len(n)-1-j) + cnt_A
+    cnt_A = 0
+    # 내림차순
     for i in range(len(n)-1,0,-1):
         temp = min(abs(ord(n[i]) - 65), abs(91 - ord(n[i])))
-        if temp != 0 : answer2 += temp + 1
+        answer2 += temp + 1
+    for j in range(1,len(n)) :
+        if n[j] != 'A' : break
+    for k in range(len(n)-1,j,-1) :
+        if n[k] == 'A' : cnt_A += 1
+    answer2 -= j-1 + cnt_A
     answer = min(answer1,answer2)
     return answer
 
